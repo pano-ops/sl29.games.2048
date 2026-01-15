@@ -1,0 +1,70 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sl29-games-2048"
+version = "0.1.0"
+description = "Implémentation pédagogique du jeu 2048 (NSI)"
+authors = [
+    { name = "Yves Cadour", email = "yves.cadour@saint-louis29.net" },
+]
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache Software License" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/saintlouis29/sl29.games.2048"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["sl29"]
+
+[project.optional-dependencies]
+dev = [
+    "ipykernel",
+    "coverage",
+]
+
+test = [
+    "pytest",
+    "pytest-cov",
+    "coverage",
+]
+
+doc = [
+    "sphinx>=7.0.0",
+    "sphinx-rtd-theme>=1.0.0",
+    "sphinx-autodoc-typehints",
+    "sphinxcontrib-napoleon",
+    "myst-parser",
+]
+
+# --- AJOUT DE LA CONFIGURATION COVERAGE ---
+[tool.coverage.run]
+source = ["sl29"] # On cible le package
+branch = true     # Analyse aussi les chemins dans les structures conditionnelles (if/else)
+
+[tool.coverage.report]
+show_missing = true # Affiche les lignes non testées par défaut
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if __name__ == .__main__.:", # Ne pas pénaliser le script de lancement
+]
+
+# --- OPTIMISATION PYTEST ---
+[tool.pytest.ini_options]
+testpaths = ["src/sl29/games/tests"]
+python_files = ["test_*.py"]
+addopts = "--import-mode=importlib --cov=sl29 --cov-report=term-missing"
