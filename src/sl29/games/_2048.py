@@ -43,8 +43,14 @@ def _creer_plateau_vide() -> List[List[int]]:
     :return: Une grille vide.
     :rtype: List[List[int]]
     """
-    raise NotImplementedError("Fonction _creer_plateau_vide non implémentée.")
-
+    grille = []
+    for _ in range(TAILLE):
+        ligne = []
+        for _ in range(TAILLE):
+            ligne.append(0)
+        grille.append(ligne)
+    return grille
+  
 def _get_cases_vides(plateau: List[List[int]]) -> List[Tuple[int, int]]:
     """
     Retourne les coordonnées des cases vides sous forme d'une liste de coordonnées
