@@ -69,8 +69,7 @@ def _get_cases_vides(plateau: List[List[int]]) -> List[Tuple[int, int]]:
     return result
 
 def _ajouter_tuile(plateau: List[List[int]]) -> List[List[int]]:
-   
-   """
+    """
     Ajoute une tuile de valeur 2 sur une case vide.
 
     :param plateau: La grille actuelle.
@@ -78,6 +77,21 @@ def _ajouter_tuile(plateau: List[List[int]]) -> List[List[int]]:
     :return: Une nouvelle grille avec une tuile ajoutée.
     :rtype: List[List[int]]
     """
+
+    nouveau_plateau = copy.deepcopy(plateau)
+
+
+    cases_vides = _get_cases_vides(nouveau_plateau)
+
+
+    if not cases_vides:
+        return nouveau_plateau
+
+    ligne, colonne = random.choice(cases_vides)
+
+    nouveau_plateau[ligne][colonne] = 2
+
+    return nouveau_plateau
     
 
 def _supprimer_zeros(ligne: List[int]) -> List[int]:
