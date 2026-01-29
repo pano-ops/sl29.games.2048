@@ -69,7 +69,8 @@ def _get_cases_vides(plateau: List[List[int]]) -> List[Tuple[int, int]]:
     return result
 
 def _ajouter_tuile(plateau: List[List[int]]) -> List[List[int]]:
-    """
+   
+   """
     Ajoute une tuile de valeur 2 sur une case vide.
 
     :param plateau: La grille actuelle.
@@ -77,7 +78,7 @@ def _ajouter_tuile(plateau: List[List[int]]) -> List[List[int]]:
     :return: Une nouvelle grille avec une tuile ajoutée.
     :rtype: List[List[int]]
     """
-    raise NotImplementedError("Fonction _ajouter_tuile non implémentée.")
+    
 
 def _supprimer_zeros(ligne: List[int]) -> List[int]:
     """
