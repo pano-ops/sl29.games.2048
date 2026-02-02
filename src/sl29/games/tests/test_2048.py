@@ -38,8 +38,8 @@ def test__get_cases_vides():
         [8, 2, 4, 0],
     ]
     attendu = [(0,0),(0,3),(1,1),(1,3),(3,3)]
-    resultat = _get_cases_vides(plateau) 
-    assert resultat == attendu, f"normalement : {attendu} mais {resultat} "
+    resultat = _get_cases_vides(plateau)
+    assert  resultat == attendu, f"Normalement : {attendu} mais {resultat}"
     print("OK")
 
 
@@ -75,7 +75,18 @@ def test__ajouter_tuile():
 
 def test__supprimer_zeros():
     print("----> Tests de _supprimer_zeros...")
-    raise NotImplementedError("Tests de _supprimer_zeros non implémentés.")
+    ligne = [0,0,2]
+    result = _supprimer_zeros(ligne)
+    attendu = [2]
+    assert result == attendu, f"resultat : {result} or j'attendais {attendu}"
+    ligne = [0,0,0]
+    result = _supprimer_zeros(ligne)
+    attendu = []
+    assert result == attendu, f"resultat : {result} or j'attendais {attendu}"
+    ligne = [1,1,1]
+    result = _supprimer_zeros(ligne)
+    attendu = [1,1,1]
+    assert result == attendu, f"resultat : {result} or j'attendais {attendu}"
     print("OK")
 
 def test__fusionner():
@@ -342,4 +353,4 @@ def test_partie_terminee_plein_sans_fusions():
     print("OK")
 
 if __name__ == "__main__":
-	main()
+    main()
